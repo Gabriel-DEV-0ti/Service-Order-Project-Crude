@@ -1,4 +1,4 @@
-package VdeVigilancia.Projeto_OS.db;
+package VdeVigilancia.Projeto_OS;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +11,6 @@ public class ConnectionFactory {
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
-
-
     }
+
 }

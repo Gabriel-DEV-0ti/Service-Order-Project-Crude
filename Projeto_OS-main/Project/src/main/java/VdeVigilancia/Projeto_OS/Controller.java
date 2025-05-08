@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class Controller {
     @FXML
-    Button BotaoCadastro, BotaoEntrar, BotaoCadastrar;
+    Button BotaoEntrar, BotaoCadastrar, BotaoEditar, BotaoExcluir;
 
     @FXML
     MenuItem BotaoCliente, BotaoUsuario, BotaoOS;
@@ -22,9 +22,32 @@ public class Controller {
         cliente.setEmail(email.getText());
         cliente.setCpf(CPF.getText());
         cliente.setTelefone(Tel.getText());
+        cliente.setAparelho(cliente.getAparelho());
 
         ClienteDAO dao = new ClienteDAO();
         dao.inserirCliente(cliente);
+    }
+
+    @FXML
+    protected void editarCliente () {
+    }
+
+    @FXML
+    protected  void excluirCliente () {
+        int id = 1; // Substitua por seleção real do cliente
+        if (ClienteDAO.deletarCliente(id)) {
+            showAlert("Sucesso", "Cliente deletado com sucesso!");
+        } else {
+            showAlert("Erro", "Erro ao deletar o cliente.");
+        }
+    }
+
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     @FXML
