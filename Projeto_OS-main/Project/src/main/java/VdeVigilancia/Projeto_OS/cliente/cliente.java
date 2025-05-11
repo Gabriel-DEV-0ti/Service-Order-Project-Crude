@@ -10,7 +10,10 @@ public class cliente {
 
     // Construtores, Getters e Setters
 
-    public void Cliente(int id, String nome, String email, String cpf, String telefone, String aparelho) {
+    public cliente() {
+    }
+
+    public cliente(int id, String nome, String email, String cpf, String telefone, String aparelho) {
         this.id = id;
         this.nome = nome;
         this.email = email;
